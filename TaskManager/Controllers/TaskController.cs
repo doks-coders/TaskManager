@@ -124,6 +124,27 @@ public class TaskController : Controller
 		}
 	}
 
+	public async Task<IActionResult> CheckTask(int id)
+	{
+		//Get Task
+		if (id == null)
+		{
+			return RedirectToAction(nameof(Index));
+		}
+		var response = await _mediator.Send(new TaskByIdRequest(id));
+		if (response.TaskItem == null) return NotFound();
+
+
+		//Map Task Response to UpdateTask
+		var updateTaskRequest = _mapper.Map<UpdateTaskRequest>(response.TaskItem);
+		updateTaskRequest.UserId = User.GetUserId();
+		updateTaskRequest.Completed = true;
+		//Update Task
+		var updateResponse = await _mediator.Send(updateTaskRequest);
+
+		return RedirectToAction(nameof(Index));
+	}
+
 	// GET: TaskController/Delete/5
 	public IActionResult Delete(int id)
 	{
@@ -142,16 +163,18 @@ public class TaskController : Controller
 			if (response.TaskDeleted)
 			{
 				//alert sucessfully deleted
-				return RedirectToAction("Index", "Home");
+				return RedirectToAction(nameof(Index));
 			}
 			//alert: did not delete
-			return RedirectToAction("Index", "Home");
+			return RedirectToAction(nameof(Index));
 		}
 		catch
 		{
 			return View();
 		}
 	}
+
+
 
 	private async Task<List<SelectListItem>> GetAllCategories()
 	{
