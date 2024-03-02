@@ -1,13 +1,8 @@
 ﻿using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TaskManager.ApplicationCore.Mediators.UpdateTaskMediator
 {
-	public class UpdateTaskRequest:IRequest<UpdateTaskResponse>
+	public class UpdateTaskRequest : IRequest<UpdateTaskResponse>
 	{
 		public int Id { get; set; }
 		public required string UserId { get; set; }

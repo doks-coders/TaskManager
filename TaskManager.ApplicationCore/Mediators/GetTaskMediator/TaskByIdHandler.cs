@@ -10,6 +10,11 @@ using TaskManager.Contracts.Responses;
 
 namespace TaskManager.ApplicationCore.Mediators.TaskMediators;
 
+/// <summary>
+/// This contains the handler for the TaskById. It will be used for 
+/// registering our TaskByIdRequest and TaskByIdResponse
+/// </summary>
+/// 
 public class TaskByIdHandler : IRequestHandler<TaskByIdRequest, TaskByIdResponse?>
 
 {

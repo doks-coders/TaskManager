@@ -1,23 +1,20 @@
-﻿using AutoMapper;
-using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MediatR;
 using TaskManager.ApplicationCore.Entities;
 using TaskManager.ApplicationCore.Interfaces;
 
 
 namespace TaskManager.ApplicationCore.Mediators.DeleteTaskMediator
 {
-	public class DeleteTaskByIdHandler:IRequestHandler<DeleteTaskByIdRequest,DeleteTaskByIdResponse>
+	/// <summary>
+	/// This contains the handler for the DeleteTaskById. It will be used for 
+	/// registering our DeleteTaskByIdRequest and DeleteTaskByIdResponse
+	/// </summary>
+	/// 
+	public class DeleteTaskByIdHandler : IRequestHandler<DeleteTaskByIdRequest, DeleteTaskByIdResponse>
 	{
 		private readonly IRepository<TaskItem> _taskRepository;
-		private readonly IMapper _mapper;
-		public DeleteTaskByIdHandler(IMapper mapper, IRepository<TaskItem> taskRepository)
+		public DeleteTaskByIdHandler(IRepository<TaskItem> taskRepository)
 		{
-			_mapper = mapper;
 			_taskRepository = taskRepository;
 		}
 

@@ -1,17 +1,18 @@
-﻿using AutoMapper;
-using MediatR;
+﻿using MediatR;
 using TaskManager.ApplicationCore.Entities;
 using TaskManager.ApplicationCore.Interfaces;
 
 namespace TaskManager.ApplicationCore.Mediators.UpdateTaskMediator
 {
+	/// <summary>
+	/// This contains the handler for the UpdateTask. It will be used for 
+	/// registering our updateTaskRequest and UpdateTaskResponse
+	/// </summary>
 	public class UpdateTaskHandler : IRequestHandler<UpdateTaskRequest, UpdateTaskResponse>
 	{
 		private readonly IRepository<TaskItem> _taskRepository;
-		private readonly IMapper _mapper;
-		public UpdateTaskHandler(IMapper mapper, IRepository<TaskItem> taskRepository)
+		public UpdateTaskHandler(IRepository<TaskItem> taskRepository)
 		{
-			_mapper = mapper;
 			_taskRepository = taskRepository;
 		}
 

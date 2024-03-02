@@ -2,7 +2,6 @@
 using TaskManager.ApplicationCore.Entities;
 using TaskManager.ApplicationCore.Mediators.CreateTaskMediator;
 using TaskManager.ApplicationCore.Mediators.UpdateTaskMediator;
-using TaskManager.Contracts.Requests;
 using TaskManager.Contracts.Responses;
 using TaskManager.ViewModels;
 

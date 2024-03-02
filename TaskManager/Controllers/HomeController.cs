@@ -1,9 +1,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using TaskManager.ApplicationCore.Entities;
 using TaskManager.ApplicationCore.Extensions;
-using TaskManager.ApplicationCore.Interfaces;
 using TaskManager.ApplicationCore.Mediators.GetTasksByUsernameMediator;
 using TaskManager.Contracts.Requests;
 using TaskManager.ViewModels;

@@ -1,16 +1,15 @@
 ﻿using AutoMapper;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TaskManager.ApplicationCore.Entities;
 using TaskManager.ApplicationCore.Interfaces;
 
 
 namespace TaskManager.ApplicationCore.Mediators.CreateTaskMediator
 {
+	/// <summary>
+	/// This contains the handler for the CreateTask. It will be used for 
+	/// registering our CreateTaskRequest and CreateTaskResponse
+	/// </summary>
 	public class CreateTaskHandler : IRequestHandler<CreateTaskRequest, CreateTaskResponse>
 	{
 		private readonly IRepository<TaskItem> _taskRepository;

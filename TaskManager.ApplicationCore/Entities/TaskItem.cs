@@ -1,7 +1,6 @@
 ﻿using TaskManager.ApplicationCore.Interfaces;
 using TaskManager.ApplicationCore.Mediators.CreateTaskMediator;
 using TaskManager.ApplicationCore.Mediators.UpdateTaskMediator;
-using TaskManager.Contracts.Requests;
 
 namespace TaskManager.ApplicationCore.Entities;
 
