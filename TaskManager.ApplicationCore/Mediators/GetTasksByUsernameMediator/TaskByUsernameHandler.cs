@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using TaskManager.ApplicationCore.Entities;
 using TaskManager.ApplicationCore.Interfaces;
 using TaskManager.ApplicationCore.Specifications;
@@ -15,9 +16,11 @@ namespace TaskManager.ApplicationCore.Mediators.GetTasksByUsernameMediator
 	public class TaskByUsernameHandler : IRequestHandler<TaskByUsernameRequest, TaskByUsernameResponse>
 	{
 		private readonly IRepository<TaskItem> _taskRepository;
-		public TaskByUsernameHandler(IRepository<TaskItem> taskRepository)
+		private readonly IMapper _mapper;
+		public TaskByUsernameHandler(IMapper mapper, IRepository<TaskItem> taskRepository)
 		{
 			_taskRepository = taskRepository;
+			_mapper = mapper;
 		}
 		public async Task<TaskByUsernameResponse> Handle(TaskByUsernameRequest request, CancellationToken cancellationToken)
 		{

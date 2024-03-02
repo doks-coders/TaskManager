@@ -7,6 +7,7 @@ using TaskManager.ApplicationCore.Extensions;
 using TaskManager.ApplicationCore.Interfaces;
 using TaskManager.ApplicationCore.Mediators.CreateTaskMediator;
 using TaskManager.ApplicationCore.Mediators.DeleteTaskMediator;
+using TaskManager.ApplicationCore.Mediators.GetTasksByUsernameMediator;
 using TaskManager.ApplicationCore.Mediators.UpdateTaskMediator;
 using TaskManager.Contracts.Requests;
 using TaskManager.Models;
@@ -29,10 +30,17 @@ public class TaskController : Controller
 		_mediator = mediator;
 	}
 
-	public ActionResult Index()
+	public async Task<IActionResult> Index()
 	{
+		var viewModel = new TaskByUsernameResponse();
 
-		return View();
+		if (User.GetUserId() != null)
+		{
+			viewModel = await _mediator.Send(new TaskByUsernameRequest(User.GetUserId()));
+		}
+
+		return View(viewModel);
+
 	}
 
 	// GET: TaskController/Details/5

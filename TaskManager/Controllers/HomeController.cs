@@ -18,14 +18,8 @@ public class HomeController : Controller
 
 	public async Task<IActionResult> Index()
 	{
-		var viewModel = new TaskByUsernameResponse();
-
-		if (User.GetUserId() != null)
-		{
-			viewModel = await _mediator.Send(new TaskByUsernameRequest(User.GetUserId()));
-		}
-
-		return View(viewModel);
+		
+		return View();
 	}
 
 

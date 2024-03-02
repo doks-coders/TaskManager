@@ -1,0 +1,69 @@
+﻿@model TaskByUsernameResponse
+
+
+<div>
+	<div class="d-flex justify-content-between">
+		<div>
+			<div class="d-flex align-items-center">
+				<div class="HomePageFont">Tasks </div> <div>For the Day</div>
+			</div>
+			<div class="HomeBottomBar"></div>
+		</div>
+		<a asp-controller="Task" asp-action="Create">
+			<button class="btn btn-primary">Add Task</button>
+		</a>
+
+	</div>
+
+	<div style="overflow-x:auto;width:90vw">
+		<table class="mt-2 table table-striped">
+			<thead>
+				<tr>
+					<th style="width:400px">Task</th>
+					<th>Category</th>
+					<th>Completed</th>
+					<th>Day</th>
+					<th></th>
+				</tr>
+			</thead>
+
+			<tbody>
+				@{
+					foreach (var item in Model.Tasks)
+					{
+						<tr>
+							<td>
+								@item.TaskMessage
+							</td>
+							<td>
+								@item.Category?.Name
+							</td>
+							<td>
+								@item.Completed
+							</td>
+							<td>
+								@item.DaysSelected
+							</td>
+							<td>
+								<div class="d-flex">
+									<a asp-controller="Task" asp-action="Edit" asp-route-id="@(item.Id)">
+										<button class="btn btn-primary">Edit</button>
+									</a>
+
+									<a asp-controller="Task" asp-action="Delete" asp-route-id="@(item.Id)">
+										<button class="btn btn-danger">Delete</button>
+									</a>
+
+
+
+								</div>
+							</td>
+						</tr>
+					}
+				}
+
+			</tbody>
+		</table>
+	</div>
+
+</div>
