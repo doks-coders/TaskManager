@@ -1,0 +1,47 @@
+﻿@model TaskViewModel;
+
+<form method="post">
+	<div class="m-1">
+		<label asp-for="TaskMessage"></label>
+		<input class="form-control" asp-for="TaskMessage" />
+		<span asp-validation-for="TaskMessage"></span>
+	</div>
+	<div class="m-1">
+		<label asp-for="DateChosen"></label>
+		<input class="form-control" asp-for="DateChosen" />
+		<span asp-validation-for="DateChosen"></span>
+	</div>
+
+	<div class="m-1">
+		<label asp-for="Categories"></label>
+		<select class="form-control" asp-items=@Model.Categories asp-for="CategoryId"></select>
+		<span asp-validation-for="CategoryId"></span>
+	</div>
+
+
+	<div>
+		<label>Select Days</label>
+		<div class="d-flex flex-wrap">
+			@for (var i = 0; i < Model.Days.Count; i++)
+			{
+				<div class="form-check mx-3">
+					<input class="form-check-input" type="checkbox" asp-for="@Model.Days[i].IsChecked" />
+					<label class="form-check-label">@(Model.Days[i].Text)</label>
+					<input hidden asp-for="@Model.Days[i].Text" />
+				</div>
+			}
+
+		</div>
+	
+	</div>
+	<div>
+		<div class="mt-3 form-check">
+			<input class="form-check-input" type="checkbox"  asp-for="Recurring"  />
+			<label class="form-check-label">Recurring</label>
+		</div>
+	</div>
+
+	<button class="btn btn-primary" type="submit">Submit Form</button>
+
+</form>
+

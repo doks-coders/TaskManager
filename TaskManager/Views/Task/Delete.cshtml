@@ -1,0 +1,13 @@
+﻿@model DeleteViewModel;
+<div>
+	<form method="post">
+		<div class="d-flex justify-content-center">
+
+			<input hidden class="form-control" asp-for="Id"/>
+			<div class="d-flex">
+				<button type="submit" class="btn btn-danger m-2">Delete</button>
+				<a class="btn btn-primary m-2" asp-action="Index" asp-controller="Home">Cancel</a>
+			</div>
+		</div>
+	</form>
+</div>

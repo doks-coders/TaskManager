@@ -1,0 +1,127 @@
+﻿//One
+
+Know what you are building
+
+We are building a task manager
+and here is the a user story
+
+Michael opens up the the web app in his phone
+and he sees thet tasks he has to do for the day.
+
+A task contains
+TaskMessage
+Completed
+DateCreated
+DateUpdated
+CategoryId
+Category
+
+These tasks have different categories
+ranging from 
+-Exercise 
+-Study
+-Entertainment
+-Self/Care
+
+Each List Item has a different color for a specific Category
+
+When Mike is done wth a task, Mike can check the list of by selecting a button called finished
+this will trigger a modal asking if he is sure and then after selection,
+
+Then this will draw a line across the list
+
+
+
+Now there are different types tasks, there are recurring tasks (everyday) and then 
+there are immediate tasks, this happen and finish in one go
+
+Recurring means that, The taskCompleted gets set to false, after a specific period
+and the days active can either be Monday, Tuesday, or Wednesday, Thursday
+
+Features
+---------
+- Mike will be able to set the time range of tasks that he does
+- Mike will be able to modify the tasks that he has created before
+- Mike will be able to delete
+
+
+So what we need to do is to set up a standard codebase that can enable us to perform all these
+professionally
+
+├───ApplicationCore
+│   ├───Constants
+│   ├───Entities
+│   │   ├───BasketAggregate
+│   │   ├───BuyerAggregate
+│   │   └───OrderAggregate
+│   ├───Exceptions
+│   ├───Extensions
+│   ├───Interfaces
+│   ├───Services
+│   └───Specifications
+
+
+├───Infrastructure
+│   ├───Data
+│   │   ├───Config
+│   │   ├───Migrations
+│   │   └───Queries
+│   ├───Identity
+│   │   └───Migrations
+│   ├───Logging
+ 
+Models
+├───Requests
+Web
+    ├───Areas
+    │   └───Identity
+    │       └───Pages
+    │           └───Account
+    ├───Controllers
+    │   └───Api
+    ├───Extensions
+    ├───Features
+    │   ├───MyOrders
+    │   └───OrderDetails
+    ├───HealthChecks
+    ├───Interfaces
+    ├───Pages
+    │   ├───Admin
+    │   ├───Basket
+    │   └───Shared
+    │       └───Components
+    │           └───BasketComponent
+    ├───Services
+    ├───ViewModels
+    │   ├───Account
+    │   ├───File
+    │   └───Manage
+    ├───Views
+    │   ├───Account
+    │   ├───Manage
+    │   ├───Order
+    │   └───Shared
+    │       └───Components
+    │           └───Basket
+
+
+
+    Add-Migration NewStart -o Data\Migrations
+    Add-Migration AddedIdMig -o Data\Migrations -Context ApplicationDbContext
+
+    update-database -Context ApplicationDbContext
+
+    drop-database -Context ApplicationDbContext
+
+
+    I used DDD, IAggregateRoot and Ardalis structure
+
+    I used Mediators
+
+
+    Add-Migration NewMigration -o Identity\Migrations -Context AppIdentityContext
+
+    update-database -Context AppIdentityContext
+
+
+    
