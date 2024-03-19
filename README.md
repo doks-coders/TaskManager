@@ -12,9 +12,7 @@ This is a Task Manager Built on the robust .NET MVC framework f
   git clone https://github.com/doks-coders/TaskManager
 ```
 ## About
-This is a simple crud application that focuses on the creation of todo lists for users
-It simply takes in a task and then after that task is accomplished then the task can be deleted
-THis is supposed to help users to plan and manage their tasks. But was is majorly emphasised is the Architecture.
+This is a straightforward CRUD application designed to facilitate the creation and management of to-do lists for users. It allows users to input tasks and subsequently delete them once completed.However, the central emphasis lies in its architecture.
 
 ## Technologies Implemented
 - ASP.NET MVC 8.0
